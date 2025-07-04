@@ -25,14 +25,12 @@ const CategoryFilter = () => {
 
   return (
     <div className="mb-6 w-full md:w-auto">
-      <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-        Filter by Category:
-      </label>
+    
       <select
         id="category"
         value={selectedCategory}
         onChange={handleCategoryChange}
-        className="block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white"
+        className="block w-full p-2 border border-gray-300 text-black rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white"
       >
         <option value="all">All Categories</option>
         {categories.map((category) => (
@@ -41,6 +39,9 @@ const CategoryFilter = () => {
           </option>
         ))}
       </select>
+      <label htmlFor="category" className="block text-sm font-medium text-gray-700 mt-1 px-2">
+        Filter by Category:
+      </label>
     </div>
   );
 };

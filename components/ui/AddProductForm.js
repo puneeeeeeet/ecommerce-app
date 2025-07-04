@@ -31,7 +31,7 @@ const AddProductForm = () => {
     messageBox.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
     messageBox.innerHTML = `
       <div class="bg-white p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto">
-        <p class="text-lg font-semibold mb-4">Product (simulated) added successfully!</p>
+        <p class="text-lg text-black font-semibold mb-4">Product (simulated) added successfully!</p>
         <button id="closeMessageBox" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">OK</button>
       </div>
     `;
@@ -47,14 +47,14 @@ const AddProductForm = () => {
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Add New Product (Simulated)</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
-          <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="title" className="block text-sm font-medium text-black mb-1">
             Title
           </label>
           <input
             type="text"
             id="title"
             {...register('title')}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full border text-gray-700 border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
           {errors.title && <p className="text-red-500 text-sm mt-1">{errors.title.message}</p>}
         </div>
@@ -68,7 +68,7 @@ const AddProductForm = () => {
             id="price"
             step="0.01"
             {...register('price', { valueAsNumber: true })}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full text-gray-700 border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
           {errors.price && <p className="text-red-500 text-sm mt-1">{errors.price.message}</p>}
         </div>
@@ -81,7 +81,7 @@ const AddProductForm = () => {
             id="description"
             rows="3"
             {...register('description')}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full text-gray-700 border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           ></textarea>
           {errors.description && (
             <p className="text-red-500 text-sm mt-1">{errors.description.message}</p>
@@ -96,7 +96,7 @@ const AddProductForm = () => {
             type="text"
             id="category"
             {...register('category')}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full text-gray-700 border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
           {errors.category && (
             <p className="text-red-500 text-sm mt-1">{errors.category.message}</p>
@@ -111,7 +111,7 @@ const AddProductForm = () => {
             type="text"
             id="image"
             {...register('image')}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full text-gray-700 border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
           {errors.image && <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>}
         </div>
