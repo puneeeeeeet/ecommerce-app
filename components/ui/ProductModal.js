@@ -1,19 +1,18 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image'; // Import Image component
 import { useQuery } from '@tanstack/react-query';
-import { getProductById } from '../../lib/fakeStoreApi'; // Updated import path
+import { getProductById } from '../../lib/fakeStoreApi';
 import { useCartStore } from '../../store/useCartStore';
 
 const ProductModal = ({ productId, onClose }) => {
-  const { data: product, isLoading, isError } = useQuery(
-    ['product', productId],
-    () => getProductById(productId),
-    {
-      enabled: !!productId, // Only fetch if productId is available
-      staleTime: 5 * 60 * 1000, // Keep data fresh for 5 minutes
-    }
-  );
+  const { data: product, isLoading, isError } = useQuery({
+    queryKey: ['product', productId],
+    queryFn: () => getProductById(productId),
+    enabled: !!productId,
+    staleTime: 5 * 60 * 1000,
+  });
 
   const addItemToCart = useCartStore((state) => state.addItemToCart);
 
@@ -35,8 +34,15 @@ const ProductModal = ({ productId, onClose }) => {
 
         {product && (
           <div className="flex flex-col md:flex-row gap-6 mt-4">
-            <div className="md:w-1/2 flex justify-center items-center p-4 bg-gray-50 rounded-lg">
-              <img src={product.image} alt={product.title} className="max-h-80 object-contain rounded-md shadow-sm" />
+            <div className="md:w-1/2 flex justify-center items-center p-4 bg-gray-50 rounded-lg relative h-80"> {/* Added relative and fixed height */}
+              {/* Changed <img> to <Image> */}
+              <Image
+                src={product.image}
+                alt={product.title}
+                fill // Use fill to make it cover the parent div
+                style={{ objectFit: 'contain' }} // Keep objectFit: 'contain'
+                sizes="(max-width: 768px) 100vw, 50vw" // Responsive sizes
+              />
             </div>
             <div className="md:w-1/2">
               <h2 className="text-3xl font-bold mb-3 text-gray-900">{product.title}</h2>
@@ -56,7 +62,7 @@ const ProductModal = ({ productId, onClose }) => {
               <button
                 onClick={() => {
                   addItemToCart(product);
-                  onClose(); // Optionally close modal after adding to cart
+                  onClose();
                 }}
                 className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 text-lg font-semibold shadow-md"
               >

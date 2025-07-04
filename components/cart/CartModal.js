@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image'; // Import Image component
 import { useCartStore } from '../../store/useCartStore';
 
 const CartModal = ({ onClose }) => {
@@ -32,7 +33,16 @@ const CartModal = ({ onClose }) => {
             <ul>
               {cartItems.map((item) => (
                 <li key={item.id} className="flex items-center justify-between py-3 border-b border-gray-200 last:border-b-0">
-                  <img src={item.image} alt={item.title} className="w-16 h-16 object-contain mr-4 rounded-md" />
+                  {/* Changed <img> to <Image> */}
+                  <div className="relative w-16 h-16 mr-4 rounded-md overflow-hidden flex-shrink-0">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill // Use fill to make it cover the parent div
+                      style={{ objectFit: 'contain' }} // Keep objectFit: 'contain' for product images
+                      sizes="(max-width: 768px) 100vw, 33vw" // Responsive sizes for optimization
+                    />
+                  </div>
                   <div className="flex-grow">
                     <h3 className="font-semibold text-lg text-gray-900 line-clamp-1">{item.title}</h3>
                     <p className="text-gray-600 text-sm">${item.price.toFixed(2)}</p>
