@@ -24,8 +24,10 @@ const CategoryFilter = () => {
   if (isError) return <p className="text-red-600">Error loading categories.</p>;
 
   return (
-    <div className="mb-6 w-full md:w-auto">
-    
+    <div className="mb-6 w-full flex md:w-auto">
+    <label htmlFor="category" className="block text-sm font-medium text-gray-400 m-1 px-2">
+        Filter by Category:
+      </label>
       <select
         id="category"
         value={selectedCategory}
@@ -39,9 +41,7 @@ const CategoryFilter = () => {
           </option>
         ))}
       </select>
-      <label htmlFor="category" className="block text-sm font-medium text-gray-700 mt-1 px-2">
-        Filter by Category:
-      </label>
+      
     </div>
   );
 };
