@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image'; // Import Image component
+import Image from 'next/image'; 
 import { useQuery } from '@tanstack/react-query';
 import { getProductById } from '../../lib/fakeStoreApi';
 import { useCartStore } from '../../store/useCartStore';
@@ -35,13 +35,13 @@ const ProductModal = ({ productId, onClose }) => {
         {product && (
           <div className="flex flex-col md:flex-row gap-6 mt-4">
             <div className="md:w-1/2 flex justify-center items-center p-4 bg-gray-50 rounded-lg relative h-80"> {/* Added relative and fixed height */}
-              {/* Changed <img> to <Image> */}
+             
               <Image
                 src={product.image}
                 alt={product.title}
-                fill // Use fill to make it cover the parent div
-                style={{ objectFit: 'contain' }} // Keep objectFit: 'contain'
-                sizes="(max-width: 768px) 100vw, 50vw" // Responsive sizes
+                fill 
+                style={{ objectFit: 'contain' }} 
+                sizes="(max-width: 768px) 100vw, 50vw" 
               />
             </div>
             <div className="md:w-1/2">

@@ -1,9 +1,7 @@
 import React from 'react';
-import { getProducts } from '../lib/fakeStoreApi'; // Updated import path
+import { getProducts } from '../lib/fakeStoreApi'; 
 import ProductListClient from '../components/ProductListClient';
 
-// This component is a Server Component by default in the app directory.
-// Data fetching here happens on the server.
 export default async function HomePage() {
   let initialProducts = [];
   let error = null;
@@ -24,8 +22,6 @@ export default async function HomePage() {
   }
 
   return (
-    // ProductListClient is a Client Component that will handle all client-side
-    // interactivity, including search, filter, and modals.
     <ProductListClient initialProducts={initialProducts} />
   );
 }

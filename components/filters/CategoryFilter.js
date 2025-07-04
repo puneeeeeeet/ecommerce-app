@@ -1,17 +1,15 @@
-// components/filters/CategoryFilter.js
-
 "use client";
 
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { getCategories } from '../../lib/fakeStoreApi'; // Updated import path
+import { getCategories } from '../../lib/fakeStoreApi'; 
 import { useProductStore } from '../../store/useProductStore';
 
 const CategoryFilter = () => {
-  const { data: categories, isLoading, isError } = useQuery({ // <--- Changed to object form here
+  const { data: categories, isLoading, isError } = useQuery({ 
     queryKey: ['categories'],
     queryFn: getCategories,
-    staleTime: Infinity, // Categories rarely change, so cache indefinitely
+    staleTime: Infinity, 
   });
   const setSelectedCategory = useProductStore((state) => state.setSelectedCategory);
   const selectedCategory = useProductStore((state) => state.selectedCategory);

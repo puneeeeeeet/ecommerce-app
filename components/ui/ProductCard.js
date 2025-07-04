@@ -1,19 +1,19 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image'; // Import Image component
+import Image from 'next/image'; 
 
 const ProductCard = ({ product, onProductClick, onAddToCart }) => {
   return (
     <div className="border border-gray-200 bg-white p-4 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow duration-200">
-      {/* Changed <img> to <Image> */}
+     
       <div className="relative w-full h-48 mb-4 cursor-pointer rounded-md overflow-hidden" onClick={() => onProductClick(product.id)}>
         <Image
           src={product.image}
           alt={product.title}
-          fill // Use fill to make it cover the parent div
-          style={{ objectFit: 'contain' }} // Keep objectFit: 'contain'
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" // Responsive sizes
+          fill 
+          style={{ objectFit: 'contain' }} 
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" 
         />
       </div>
       <h3

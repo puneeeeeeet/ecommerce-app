@@ -1,5 +1,5 @@
 import React from 'react';
-import CartIcon from '../ui/CartIcon'; // Assuming you have a CartIcon component
+import CartIcon from '../ui/CartIcon'; 
 
 const Layout = ({ children }) => {
   return (

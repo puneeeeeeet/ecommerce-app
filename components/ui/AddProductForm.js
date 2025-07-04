@@ -1,12 +1,10 @@
-// components/ui/AddProductForm.js
-
 "use client";
 
-import React, { useState } from 'react'; // Import useState
+import React, { useState } from 'react'; 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import MessageBox from './MessageBox'; // Import the new MessageBox component
+import MessageBox from './MessageBox'; 
 
 const addProductSchema = z.object({
   title: z.string().min(3, 'Title is required and must be at least 3 characters.'),
@@ -17,7 +15,7 @@ const addProductSchema = z.object({
 });
 
 const AddProductForm = () => {
-  const [messageBoxContent, setMessageBoxContent] = useState(null); // State for message box
+  const [messageBoxContent, setMessageBoxContent] = useState(null); 
 
   const {
     register,
@@ -30,19 +28,18 @@ const AddProductForm = () => {
 
   const onSubmit = (data) => {
     console.log('Simulating product submission:', data);
-    setMessageBoxContent('Product (simulated) added successfully!'); // Set content to show message box
-    reset(); // Clear the form
+    setMessageBoxContent('Product (simulated) added successfully!'); 
+    reset(); 
   };
 
   const handleCloseMessageBox = () => {
-    setMessageBoxContent(null); // Close message box
+    setMessageBoxContent(null);
   };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md mb-8 border border-gray-200">
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Add New Product (Simulated)</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        {/* ... (form fields unchanged) ... */}
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
             Title
@@ -112,8 +109,6 @@ const AddProductForm = () => {
           />
           {errors.image && <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>}
         </div>
-        {/* ... (end of form fields) ... */}
-
         <button
           type="submit"
           className="w-full bg-green-500 text-white py-2.5 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 font-semibold shadow-md transition-colors"

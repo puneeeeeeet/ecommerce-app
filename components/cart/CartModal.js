@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image'; // Import Image component
+import Image from 'next/image'; 
 import { useCartStore } from '../../store/useCartStore';
 
 const CartModal = ({ onClose }) => {
@@ -38,9 +38,9 @@ const CartModal = ({ onClose }) => {
                     <Image
                       src={item.image}
                       alt={item.title}
-                      fill // Use fill to make it cover the parent div
-                      style={{ objectFit: 'contain' }} // Keep objectFit: 'contain' for product images
-                      sizes="(max-width: 768px) 100vw, 33vw" // Responsive sizes for optimization
+                      fill 
+                      style={{ objectFit: 'contain' }}
+                      sizes="(max-width: 768px) 100vw, 33vw" 
                     />
                   </div>
                   <div className="flex-grow">

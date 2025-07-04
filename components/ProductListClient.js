@@ -1,5 +1,3 @@
-// components/ProductListClient.js
-
 "use client";
 
 import React, { useState, useMemo } from 'react';
@@ -12,16 +10,14 @@ import CategoryFilter from './filters/CategoryFilter';
 import AddProductForm from './ui/AddProductForm';
 import { useProductStore } from '../store/useProductStore';
 import { useCartStore } from '../store/useCartStore';
-import MessageBox from './ui/MessageBox'; // Import the new MessageBox component
+import MessageBox from './ui/MessageBox'; 
 
 const ProductListClient = ({ initialProducts }) => {
   const [selectedProductId, setSelectedProductId] = useState(null);
-  const [messageBoxContent, setMessageBoxContent] = useState(null); // State for message box
+  const [messageBoxContent, setMessageBoxContent] = useState(null); 
   const searchTerm = useProductStore((state) => state.searchTerm);
   const selectedCategory = useProductStore((state) => state.selectedCategory);
   const addItemToCart = useCartStore((state) => state.addItemToCart);
-
-  // ... (rest of useQuery and filteredProducts logic remains the same)
   const {
     data: clientFetchedProducts,
     isLoading: isClientLoading,
@@ -56,11 +52,11 @@ const ProductListClient = ({ initialProducts }) => {
 
   const handleAddToCart = (product) => {
     addItemToCart(product);
-    setMessageBoxContent(`${product.title} added to cart!`); // Set content to show message box
+    setMessageBoxContent(`${product.title} added to cart!`); 
   };
 
   const handleCloseMessageBox = () => {
-    setMessageBoxContent(null); // Close message box
+    setMessageBoxContent(null); 
   };
 
   if (isClientLoading && selectedCategory !== 'all') {
