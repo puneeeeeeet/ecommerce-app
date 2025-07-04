@@ -51,7 +51,7 @@ const AddProductForm = () => {
             type="text"
             id="title"
             {...register('title')}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full border text-black border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
           {errors.title && <p className="text-red-500 text-sm mt-1">{errors.title.message}</p>}
         </div>
@@ -65,7 +65,7 @@ const AddProductForm = () => {
             id="price"
             step="0.01"
             {...register('price', { valueAsNumber: true })}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full border text-black border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
           {errors.price && <p className="text-red-500 text-sm mt-1">{errors.price.message}</p>}
         </div>
@@ -78,7 +78,7 @@ const AddProductForm = () => {
             id="description"
             rows="3"
             {...register('description')}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full text-black border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           ></textarea>
           {errors.description && (
             <p className="text-red-500 text-sm mt-1">{errors.description.message}</p>
@@ -93,7 +93,7 @@ const AddProductForm = () => {
             type="text"
             id="category"
             {...register('category')}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full border text-black border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
           {errors.category && (
             <p className="text-red-500 text-sm mt-1">{errors.category.message}</p>
@@ -108,7 +108,7 @@ const AddProductForm = () => {
             type="text"
             id="image"
             {...register('image')}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="mt-1 block w-full border text-black border-gray-300 rounded-md shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
           {errors.image && <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>}
         </div>
